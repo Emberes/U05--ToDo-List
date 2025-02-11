@@ -75,6 +75,8 @@ if (
         authStatus.textContent = `Logged in as: ${user.email}`;
         authForm.classList.add("hidden");
         todoForm.classList.remove("hidden");
+        deleteAllButton.classList.remove("hidden");
+        signOutButton.classList.remove("hidden");
         showTasks(user);
       } catch (error: unknown) {
         if (error instanceof Error) {
@@ -93,13 +95,15 @@ if (
         const user = await signIn(email, password);
         if (!user) return;
 
-        authStatus.textContent = `Logged in as: ${user?.email}`;
+        authStatus.innerHTML = `Logged in as: ${user?.email}`;
         authForm.classList.add("hidden");
         todoForm.classList.remove("hidden");
+        deleteAllButton.classList.remove("hidden");
+        signOutButton.classList.remove("hidden");
         showTasks(user);
       } catch (error: unknown) {
         if (error instanceof Error) {
-          authStatus.textContent = `Sign in failed: ${error.message}`;
+          authStatus.innerHTML = `Sign in failed: ${error.message}`;
           console.error("Sign in failed:", error);
         }
       }
@@ -113,6 +117,8 @@ if (
       todoListElement.textContent = "";
       authForm.classList.remove("hidden");
       todoForm.classList.add("hidden");
+      deleteAllButton.classList.add("hidden");
+      signOutButton.classList.add("hidden");
     } catch (error: unknown) {
       if (error instanceof Error) {
         authStatus.textContent = `Sign out failed: ${error.message}`;
@@ -136,7 +142,7 @@ if (
       console.error("Error adding task:", error.message);
       return;
     }
-
+    todoInput.value = "";
     showTasks(user);
   });
 
@@ -160,9 +166,15 @@ if (
       authStatus.textContent = `Logged in as: ${user.email}`;
       authForm.classList.add("hidden");
       todoForm.classList.remove("hidden");
+      deleteAllButton.classList.remove("hidden");
+      signOutButton.classList.remove("hidden");
       showTasks(user);
     } else {
+      authStatus.textContent = "Not logged in";
+      authForm.classList.remove("hidden");
       todoForm.classList.add("hidden");
+      deleteAllButton.classList.add("hidden");
+      signOutButton.classList.add("hidden");
     }
   });
 } else {

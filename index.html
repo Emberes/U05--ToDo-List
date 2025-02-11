@@ -12,22 +12,21 @@
   <body>
     <div id="app">
       <header><h1>To-Do List</h1>
-      <div><i class="fa-solid fa-shield-cat"></i></div>
       </header>
 
       <div id="auth-container">
       <div id="auth-status"></div>
         <button id="sign-out-button">Sign out</button>
-     </div>
-
+     
       <form id="auth-form">
         <input type="email" id="email-input" placeholder="Enter your email..." required />
         <input type="password" id="password-input" placeholder="Enter your password..." required />
         <button type="button" id="sign-up-button">Sign up!</button>
         <button type="button" id="sign-in-button">Sign in!</button>
       </form>
+    </div>
 
-      <form id="todo-form">
+      <form id="todo-form" class="hidden">
         <input 
         type="text" 
         id="task-input" 
@@ -35,7 +34,7 @@
         required />
         <button type="submit"><i class="fa-solid fa-plus"></i></button>
         </form>
-        <button id="delete-all">Delete All</button>
+        <button id="delete-all" class="hidden">Delete All</button>
 
         <ul id="todo-list"></ul>
     </div>
