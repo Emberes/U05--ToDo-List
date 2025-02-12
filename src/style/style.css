@@ -25,11 +25,14 @@ body {
 /* 📌 Wrapper */
 #app {
   background: var(--secondary-bg); 
-  padding: 20px;
+  padding: 1rem;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: fit-content; 
   text-align: center;
   overflow: hidden;
@@ -64,12 +67,25 @@ header h1 {
   padding: 1rem;
   color: black;
   height: fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #auth-status{
   margin: 1rem;
   padding: 1rem;
   color: rgb(99, 96, 96);
+}
+
+form#auth-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  justify-content: center;
+  align-items: center;
 }
 
 #auth-form input {
@@ -80,6 +96,7 @@ header h1 {
   border-radius: 15px;
   margin-right: 10px;
   box-sizing: border-box;
+  width: fit-content;
 }
 
 #auth-form button {
@@ -104,7 +121,7 @@ header h1 {
   border-radius: 15px;
   margin-right: 10px; 
   box-sizing: border-box;
-  width: auto;
+  width: 250px;
 }
 
 #todo-form button {
@@ -202,7 +219,7 @@ ul#todo-list li {
   border: 1px solid var(--border-color); 
   border-radius: 5px;
   margin-bottom: 10px;
-  word-wrap: break-word; 
+  width: 300px;
 }
 
 .completed {
@@ -248,7 +265,15 @@ ul#todo-list li {
 @media (min-width: 768px) {
   #app {
     max-width: 1024px; 
+    width: 100%;
     max-height: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    width: 100%;
+    text-align: center;
   }
 
   header h1 {
@@ -259,6 +284,7 @@ ul#todo-list li {
     display: flex;
     flex-direction: row;
     gap: 10px; 
+    width: 850px;
   }
 
   #auth-container {
@@ -268,5 +294,12 @@ ul#todo-list li {
     height: fit-content;
   }
 
+  form#auth-form {
+    flex-direction: row;
+    gap: 10px;
+  }
 
+  ul#todo-list li{
+    width: 450px;
+  }
 }
